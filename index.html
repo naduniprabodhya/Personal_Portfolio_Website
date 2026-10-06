@@ -228,18 +228,21 @@
         </section>
 
         <section class="section" id="contact">
-            <h2>Contact</h2>
-            <p class="lead">Have a project or a question? Send me a message.</p>
-            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="post">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-                <button type="submit" class="btn">Send message</button>
-                <p id="form-status" class="form-status" role="status"></p>
-            </form>
+        <h2>Contact</h2>
+        <p class="lead">Have a project or a question? Send me a message.</p>
+        <form class="contact-form" action="https://api.web3forms.com/submit" method="post">
+    <input type="hidden" name="access_key" value="30252380-b3dd-451a-8bac-2b123369da72">
+    <input type="hidden" name="subject" value="New message from your portfolio website">
+    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <button type="submit" class="btn">Send message</button>
+            <p id="form-status" class="form-status" role="status"></p>
+    </form>
             <div class="contact-links">
                 <a href="naduniprabodhya@gmail.com" class="contact-card">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>

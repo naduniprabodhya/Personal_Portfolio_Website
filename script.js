@@ -77,3 +77,34 @@ if (!reduceMotion) {
     }, { threshold: 0.15 });
     items.forEach(item => revealObserver.observe(item));
 }
+
+/* 6. Contact form (sends through FormSubmit) */
+const form = document.querySelector(".contact-form");
+const statusEl = document.getElementById("form-status");
+
+if (form) {
+    form.addEventListener("submit", async event => {
+        event.preventDefault();
+        const formData = new FormData(form);
+        formData.append("access_key", "30252380-b3dd-451a-8bac-2b123369da72");
+        const button = form.querySelector("button[type=submit]");
+        button.disabled = true;
+        statusEl.textContent = "Sending...";
+
+        try {
+            const response = await fetch(form.action, {
+                method: "POST",
+                body: new FormData(form),
+                headers: { Accept: "application/json" }
+            });
+            const data = await response.json();
+            if (!response.ok || String(data.success) !== "true") throw new Error(data.message || "Request failed");
+            statusEl.textContent = "Thanks! Your message has been sent.";
+            form.reset();
+        } catch (error) {
+            statusEl.textContent = "Something went wrong. Please try again, or email me directly.";
+        } finally {
+            button.disabled = false;
+        }
+    });
+}
